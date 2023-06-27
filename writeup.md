@@ -8,7 +8,10 @@ So in this project, i have added 5 extra widgets to the planner app, before, the
 4. Photo Widget
 5. Location Widget
 
-Appropriateness of the widget: Does the custom widget built fit in with the rest of the widgets of the planner app? And how to use it
+### By default, it only shows the basic 4 widgets and the stopwatch widget i built, to view the rest of the widget, you will need to add it by the ( + Add Widget) button, i do this to prevent too much widget displayed at once when the planner app is opened.
+
+Question:
+--- Does the custom widget built fit in with the rest of the widgets of the planner app? And how to use it
 :
 
 Yes, all of the five custom widgets, including the Stopwatch Widget, Notes Widget, Tic Tac Toe Widget, Photo Widget, and Location Widget, seamlessly fit in with the rest of the widgets in the planner app, such as the Calendar Widget, Timer Widget, Clock Widget, and Reminder Widget. Here's how they integrate:
