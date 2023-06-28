@@ -3,8 +3,7 @@ import ClockWidget from "../widgets/ClockWidget"
 import ReminderListWidget from "../widgets/ReminderListWidget"
 import TimerWidget from "../widgets/TimerWidget"
 import CalendarWidget from "../widgets/CalendarWidget"
-import StopwatchWidget from "../widgets/StopwatchWidget"
-import NotesWidget from "../widgets/NotesWidget"
+import StopwatchWidget from "../widgets/Stopwatchwidget"
 import TicTacToeWidget from "../widgets/TicTacToeWidget"
 import LocationWidget from "../widgets/LocationWidget"
 import PhotoWidget from "../widgets/PhotoWidget"
@@ -21,7 +20,6 @@ export default function WidgetGalleryModal({
     { component: <TimerWidget />, name: "Timer" },
     { component: <CalendarWidget />, name: "Calendar" },
     { component: <StopwatchWidget />, name: "Stopwatch" },
-    { component: <NotesWidget />, name: "Notes" },
     { component: <TicTacToeWidget />, name: "Tic Tac Toe" },
     { component: <LocationWidget />, name: "Location" },
     { component: <PhotoWidget />, name: "Photo" },
