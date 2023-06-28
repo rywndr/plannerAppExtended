@@ -24,6 +24,8 @@ To utilize the Tic Tac Toe Widget, simply select it from the widget menu. The gr
 
 The bot within the Tic Tac Toe Widget is designed to provide users with an engaging and competitive gaming experience. It employs an algorithm that analyzes the game board, predicts the user's moves, and strategically counters them. The bot can identify winning moves, block the user's attempts, and even make its own winning moves.
 
+Overall, as a planner app that aims to provide users with a well-rounded experience that includes moments of leisure and relaxation, incorporating a Tic Tac Toe game is be a fun addition. It offers users a way to take a break, relax, and engage in a leisure activity whilist users can enjoy a recreational activity while still having access to their planner and maintaining productivity. It provides a brief diversion and an opportunity to relax before returning to their scheduled tasks and events.
+
 ## EXTRAS:
 
 ### Stopwatch Widget: 
