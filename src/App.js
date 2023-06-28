@@ -5,7 +5,7 @@ import WidgetGalleryModal from "./modals/WidgetGalleryModal"
 import Draggable from "react-draggable"
 import TimerWidget from "./widgets/TimerWidget"
 import CalendarWidget from "./widgets/CalendarWidget"
-import StopwatchWidget from "./widgets/StopwatchWidget"
+import TicTacToeWidget from "./widgets/TicTacToeWidget"
 
 function App() {
   const [widgets, setWidgets] = useState([
@@ -29,9 +29,9 @@ function App() {
     },
     {
       id: new Date().getTime() + 3,
-      component: <StopwatchWidget />,
+      component: <TicTacToeWidget />,
       area: "left-widget",
-      name: "Stopwatch",
+      name: "Tic Tac Toe",
     },
   ])
 
