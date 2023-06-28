@@ -5,7 +5,7 @@ const styles = {
     fontFamily: "Arial, sans-serif",
     textAlign: "center",
     marginTop: "20px",
-    width: "390px",
+    width: "350px",
   },
   title: {
     fontSize: "24px",
@@ -52,6 +52,7 @@ const INITIAL_STATE = {
   currentPlayer: "X",
   winner: "",
   isGameFinished: false,
+  difficulty: "easy",
 }
 
 export default function TicTacToeWidget() {
@@ -59,7 +60,7 @@ export default function TicTacToeWidget() {
 
   useEffect(() => {
     if (state.currentPlayer === "O" && !state.winner && !state.isGameFinished) {
-      makeBotMove()
+      makeMove()
     }
     // eslint-disable-next-line
   }, [state.currentPlayer])
@@ -113,7 +114,34 @@ export default function TicTacToeWidget() {
     }
   }
 
-  const makeBotMove = () => {
+  const makeMove = () => {
+    if (state.difficulty === "easy") {
+      makeRandomMove()
+    } else if (state.difficulty === "medium") {
+      makeMediumMove()
+    } else {
+      makeHardMove()
+    }
+  }
+
+  const makeRandomMove = () => {
+    const availableCells = state.board
+      .map((cell, index) => (cell === "" ? index : null))
+      .filter(cell => cell !== null)
+
+    const randomIndex = Math.floor(Math.random() * availableCells.length)
+    const randomCell = availableCells[randomIndex]
+    const updatedBoard = [...state.board]
+    updatedBoard[randomCell] = "O"
+    setState(prevState => ({
+      ...prevState,
+      board: updatedBoard,
+      currentPlayer: "X",
+    }))
+    checkWinner(updatedBoard)
+  }
+
+  const makeMediumMove = () => {
     const winningCombinations = [
       [0, 1, 2],
       [3, 4, 5],
@@ -226,20 +254,114 @@ export default function TicTacToeWidget() {
     }
 
     // If no winning move or blocking move is available, make a random move
-    const randomIndex = Math.floor(Math.random() * availableCells.length)
-    const randomCell = availableCells[randomIndex]
+    makeRandomMove()
+  }
+
+  const makeHardMove = () => {
+    const availableCells = state.board
+      .map((cell, index) => (cell === "" ? index : null))
+      .filter(cell => cell !== null)
+
+    const bestMove = minimax(state.board, "O").index
     const updatedBoard = [...state.board]
-    updatedBoard[randomCell] = "O"
+    updatedBoard[bestMove] = "O"
+
     setState(prevState => ({
       ...prevState,
       board: updatedBoard,
       currentPlayer: "X",
     }))
+
     checkWinner(updatedBoard)
   }
 
+  const minimax = (board, player) => {
+    const availableCells = board
+      .map((cell, index) => (cell === "" ? index : null))
+      .filter(cell => cell !== null)
+
+    if (checkWin(board, "X")) {
+      return { score: -1 }
+    } else if (checkWin(board, "O")) {
+      return { score: 1 }
+    } else if (availableCells.length === 0) {
+      return { score: 0 }
+    }
+
+    const moves = []
+
+    for (let i = 0; i < availableCells.length; i++) {
+      const move = {}
+      move.index = availableCells[i]
+
+      const updatedBoard = [...board]
+      updatedBoard[availableCells[i]] = player
+
+      if (player === "O") {
+        const result = minimax(updatedBoard, "X")
+        move.score = result.score
+      } else {
+        const result = minimax(updatedBoard, "O")
+        move.score = result.score
+      }
+
+      moves.push(move)
+      updatedBoard[availableCells[i]] = ""
+    }
+
+    let bestMove
+    if (player === "O") {
+      let bestScore = -Infinity
+      for (let i = 0; i < moves.length; i++) {
+        if (moves[i].score > bestScore) {
+          bestScore = moves[i].score
+          bestMove = i
+        }
+      }
+    } else {
+      let bestScore = Infinity
+      for (let i = 0; i < moves.length; i++) {
+        if (moves[i].score < bestScore) {
+          bestScore = moves[i].score
+          bestMove = i
+        }
+      }
+    }
+
+    return moves[bestMove]
+  }
+
+  const checkWin = (board, player) => {
+    const winningCombinations = [
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 8],
+      [0, 4, 8],
+      [2, 4, 6],
+    ]
+
+    for (let combination of winningCombinations) {
+      const [a, b, c] = combination
+      if (
+        board[a] === player &&
+        board[a] === board[b] &&
+        board[a] === board[c]
+      ) {
+        return true
+      }
+    }
+
+    return false
+  }
+
   const resetGame = () => {
-    setState(INITIAL_STATE)
+    setState(prevState => ({
+      ...INITIAL_STATE,
+      difficulty: prevState.difficulty,
+    }))
   }
 
   return (
@@ -276,6 +398,29 @@ export default function TicTacToeWidget() {
           </div>
         </div>
       )}
+      <div>
+        <label htmlFor="difficulty">Difficulty: </label>
+        <select
+          id="difficulty"
+          value={state.difficulty}
+          onChange={e =>
+            setState(prevState => ({
+              ...prevState,
+              difficulty: e.target.value,
+            }))
+          }
+        >
+          <option style={{ color: "black" }} value="easy">
+            Easy
+          </option>
+          <option style={{ color: "black" }} value="medium">
+            Medium
+          </option>
+          <option style={{ color: "black" }} value="hard">
+            Hard
+          </option>
+        </select>
+      </div>
     </div>
   )
 }
