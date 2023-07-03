@@ -26,7 +26,7 @@ The Tic Tac Toe widget is an appropriate addition to the planner app for several
 
 1. **Entertainment and Relaxation**: The game allows users to take a short break from their planning activities and engage in a classic and familiar game of Tic Tac Toe. It provides a quick mental refreshment and can help users relax before returning to their tasks.
 
-2. **Visual Balance**: The widget is placed on the left side of the screen to create a visual balance with the rest of the content. By positioning the widget on the left, the planner content can occupy the majority of the screen on the right, allowing users to focus on their tasks while still having the game readily accessible.
+2. **Visual Balance**: The widget is placed on the left side of the screen to create a visual balance with the rest of the content. By positioning the widget on the left, the planner content can occupy the majority of the screen on the right, allowing users to add other widgets and focus on their tasks while still having the game readily accessible.
 
 3. **Minimized Distraction**: Placing the widget on the left side helps minimize the risk of it becoming a significant distraction. Users can engage with the game if they choose to, but it won't interfere with their primary planning activities. This placement maintains a clear separation between the planner and the game.
 
