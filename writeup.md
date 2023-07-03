@@ -69,7 +69,7 @@ The Stopwatch Widget offers several benefits for the Planner app:
 1. **Time Tracking**: Users can accurately measure and track the time spent on tasks or activities within the app.
 2. **Performance Evaluation**: The stopwatch provides a tool for evaluating task efficiency and improving productivity.
 3. **Record Laps**: Users can record laps to mark milestones or checkpoints during timed activities.
-4. **Flexibility **: The widget's simple and intuitive design allows it to be easily integrated into the Planner app without disrupting the user experience.
+4. **Flexibility**: The widget's simple and intuitive design allows it to be easily integrated into the Planner app without disrupting the user experience.
 
 #### How to Use
 
