@@ -6,9 +6,9 @@ So in this project, i have added one main custom widget to the planner app which
 
 But i also added 3 other widgets as extras which are:
 
-### Stopwatch Widget
-### Photo Widget
-### Location Widget
+- Stopwatch Widget
+- Photo Widget
+- Location Widget
 
 Question:
 --- Does the custom widget built fit in with the rest of the widgets of the planner app? And how to use it
